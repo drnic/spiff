@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 export GOPATH=$PWD/gopath
 export PATH=$GOPATH/bin:$PATH
 
