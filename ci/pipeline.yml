@@ -6,20 +6,20 @@ jobs:
   plan:
   - get: spiff
   - task: build-spiff
-    file: spiff/build.yml
+    file: spiff/ci/build.yml
   - put: docker-image
     params:
-      build: build-spiff/gopath/src/github.com/cloudfoundry-incubator/spiff
+      build: build-spiff/gopath/src/github.com/cloudfoundry-incubator/spiff/ci
 resources:
 - name: spiff
   type: git
   source:
-    uri: https://github.com/cloudfoundry-incubator/spiff.git
-    branch: ci
+    uri: https://github.com/drnic/spiff.git
+    branch: ci-spiff-merge-and-save
 - name: docker-image
   type: docker-image
   source:
-    repository: {{ docker_username }}/spiff
-    email: {{ docker_email }}
-    username: {{ docker_username }}
-    password: {{ docker_password }}
+    repository: {{docker-hub-repository}}
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
