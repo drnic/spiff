@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM progrium/busybox
 
 ADD spiff /bin/spiff
 ADD bin/spiff-merge-and-save /bin/spiff-merge-and-save
